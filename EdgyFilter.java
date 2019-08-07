@@ -2,13 +2,13 @@
  * This file was created by Kelly Eames and Nerissa Metully for CSC 142 Summer 2019. 
  * The file uses a 3X3 grid to modify the pixels, which are shifted to create the laplacian effect.*/
 
-public class LaplacianFilter implements Filter {
+public class EdgyFilter implements Filter {
 	
 	  public void filter(PixelImage pi)		{
 // Code for doing the negative conversion
 		{
 			Pixel[][] pArr = pi.getData();
-			int[][] lapArr = {{-1,-1, -1}, {-1,8,-1}, {-1,-1,-1}};
+			int[][] lapArr = {{-1, -1, -1}, {-1, 9, -1}, {-1, -1, -1}};
 			int redSum;
 			int blueSum;
 			int greenSum;
