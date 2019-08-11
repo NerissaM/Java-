@@ -1,22 +1,22 @@
 /*This file is a Gaussian Filter file. 
  * This file was created by Kelly Eames and Nerissa Metully for CSC 142 Summer 2019. 
- * The file uses a 3X3 grid to modify the pixels, which are shifted to create the laplacian effect.*/
+ * The file uses a 3X3 grid to modify the pixels, which are shifted to create the Gaussian effect.*/
 
 public class GaussianFilter implements Filter {
 	
-	  public void filter(PixelImage pi)		{
+	  public void filter(PixelImage theImage)		{
 // Code for doing the negative conversion
 		{
-			Pixel[][] pArr = pi.getData();
+			Pixel[][] pArr = theImage.getData();
 			int[][] lapArr = {{1, 2, 1}, {2, 4, 2}, {1, 2, 1}};
 			
 			int redSum;
 			int blueSum;
 			int greenSum;
 
-		    for (int row = 1; row < pi.getHeight()-1; row++)
+		    for (int row = 1; row < theImage.getHeight()-1; row++)
 		    {
-		      for (int col = 1; col < pi.getWidth()-1; col++)
+		      for (int col = 1; col < theImage.getWidth()-1; col++)
 		      {
 		    	 redSum= ((pArr[row - 1][col - 1].red) * (lapArr[0][0]))
 		    		+ (pArr[row - 1][col ].red) * (lapArr[0][1])
@@ -71,7 +71,7 @@ public class GaussianFilter implements Filter {
 		    }
 		    
 
-		    pi.setData(pArr);
+		    theImage.setData(pArr);
 	}
 }
 }
